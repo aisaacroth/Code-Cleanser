@@ -2,13 +2,13 @@
 import unittest
 import clnzr
 
+
 class TestClnzr(unittest.TestCase):
 
     def setUp(self):
         self.test_file = clnzr.retrieve_file('test.txt')
         self.test_list = clnzr.get_lines(self.test_file)
         self.test_list = clnzr.remove_trailing_whitespace(self.test_list)
-
 
     def test_retrieve_file(self):
         self.assertIsNotNone(self.test_file)
