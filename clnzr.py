@@ -15,7 +15,7 @@ def clean(filename):
 
 
 def print_arguments():
-    print("python {0} <filename>".format(sys.argv[0]))
+    print("python3 {0} <filename>".format(sys.argv[0]))
 
 
 def retrieve_lines_from_file(filename):
