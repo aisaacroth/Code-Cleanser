@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys
 ''' A simple script to remove access whitespace at the end
 of each line in a file.
