@@ -1,4 +1,4 @@
-#!/usr/b)in/env python
+#!/usr/bin/env python
 import unittest
 import clnzr
 

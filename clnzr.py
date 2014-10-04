@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-import sys
 ''' A simple script to remove access whitespace at the end
 of each line in a file.
 
-Author: Alexander Roth
-Date:   2014-09-07
+Author:  Alexander Roth
+Date:    2014-09-07
+Updated: 2014-10-03
 '''
+import glob
+import sys
 
 
 def clean(filename):
@@ -14,8 +16,22 @@ def clean(filename):
     write_clean_file(filename, clean_list)
 
 
+def clean_multiple_files(file_type):
+    file_list = catch_all_files(file_type)
+    for i in file_list:
+        clean(i)
+
+
 def print_arguments():
-    print("python3 {0} <filename>".format(sys.argv[0]))
+    print("Single file: python3 {0} <filename>".format(sys.argv[0]))
+    print("Mutliple files: python3 {0} all <file extention>".format(sys.argv[0]))
+
+
+def catch_all_files(file_type):
+    file_list = []
+    extension = '*.' + str(file_type)
+    file_list.extend(glob.glob(extension))
+    return file_list
 
 
 def retrieve_lines_from_file(filename):
@@ -49,5 +65,7 @@ def write_clean_file(filename, complete_list):
 if __name__ == "__main__":
     if len(sys.argv) == 2:
         clean(sys.argv[1])
+    elif len(sys.argv) == 3:
+        clean_multiple_files(sys.argv[2])
     else:
         print_arguments()
